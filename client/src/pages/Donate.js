@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaHeart, FaCreditCard, FaMobile, FaHandHoldingUsd, FaPray, FaChurch, FaUsers, FaBookOpen } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { FaHandHoldingUsd, FaPray, FaChurch, FaUsers, FaBookOpen } from 'react-icons/fa';
 
 const DonateContainer = styled.div`
   padding-top: 80px;
@@ -103,187 +101,6 @@ const DonationForm = styled.form`
   }
 `;
 
-const AmountSection = styled.div`
-  margin-bottom: 30px;
-
-  h4 {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-
-  .amount-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-
-  .amount-button {
-    padding: 15px;
-    border: 2px solid #e1e5e9;
-    background: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    text-align: center;
-
-    &:hover {
-      border-color: #667eea;
-      color: #667eea;
-    }
-
-    &.active {
-      border-color: #667eea;
-      background: #667eea;
-      color: white;
-    }
-  }
-
-  .custom-amount {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    input {
-      flex: 1;
-      padding: 12px 15px;
-      border: 2px solid #e1e5e9;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-
-      &:focus {
-        outline: none;
-        border-color: #667eea;
-      }
-    }
-
-    span {
-      color: #666;
-      font-weight: 500;
-    }
-  }
-`;
-
-const FormGroup = styled.div`
-  margin-bottom: 25px;
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    color: #2c3e50;
-    font-weight: 500;
-  }
-
-  input, select, textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e1e5e9;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    font-family: inherit;
-
-    &:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-
-    &.error {
-      border-color: #e74c3c;
-    }
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-
-  .error-message {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: 5px;
-  }
-`;
-
-const PaymentMethod = styled.div`
-  margin-bottom: 30px;
-
-  h4 {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-
-  .payment-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .payment-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px;
-    border: 2px solid #e1e5e9;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      border-color: #667eea;
-    }
-
-    &.active {
-      border-color: #667eea;
-      background: #f8f9ff;
-    }
-
-    input[type="radio"] {
-      margin: 0;
-    }
-
-    svg {
-      color: #667eea;
-      font-size: 1.2rem;
-    }
-
-    span {
-      font-weight: 500;
-    }
-  }
-`;
-
-const SubmitButton = styled.button`
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
-`;
 
 const ImpactSection = styled.section`
   padding: 100px 0;
@@ -330,34 +147,6 @@ const ImpactCard = styled(motion.div)`
 `;
 
 const Donate = () => {
-  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedAmount, setSelectedAmount] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState('card');
-
-  const amounts = [1000, 2500, 5000, 10000, 25000, 50000];
-
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In real app, this would integrate with Stripe or other payment processor
-      // await axios.post('/api/donations/create-payment-intent', data);
-      
-      toast.success('Thank you for your generous donation! God bless you.');
-    } catch (error) {
-      toast.error('Payment failed. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleAmountSelect = (amount) => {
-    setSelectedAmount(amount);
-    setValue('amount', amount);
-  };
 
   return (
     <DonateContainer>
@@ -439,132 +228,129 @@ const Donate = () => {
             </PurposeCard>
           </DonateInfo>
 
-          <DonationForm onSubmit={handleSubmit(onSubmit)}>
-            <h3>Make Your Donation</h3>
+          <DonationForm>
+            <h3>Bank Transfer Details</h3>
             
-            <AmountSection>
-              <h4>Select Amount (NGN)</h4>
-              <div className="amount-grid">
-                {amounts.map(amount => (
-                  <button
-                    key={amount}
-                    type="button"
-                    className={`amount-button ${selectedAmount === amount ? 'active' : ''}`}
-                    onClick={() => handleAmountSelect(amount)}
-                  >
-                    ₦{amount.toLocaleString()}
-                  </button>
-                ))}
+            <div style={{ 
+              background: '#f8f9ff', 
+              padding: '30px', 
+              borderRadius: '10px', 
+              marginBottom: '30px',
+              border: '2px solid #667eea'
+            }}>
+              <h4 style={{ 
+                color: '#2c3e50', 
+                marginBottom: '20px', 
+                textAlign: 'center',
+                fontSize: '1.3rem'
+              }}>
+                <FaHandHoldingUsd style={{ marginRight: '10px' }} />
+                Donation Account Details
+              </h4>
+              
+              <div style={{ 
+                display: 'grid', 
+                gap: '15px',
+                textAlign: 'left'
+              }}>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between',
+                  padding: '10px 0',
+                  borderBottom: '1px solid #e1e5e9'
+                }}>
+                  <strong style={{ color: '#2c3e50' }}>Account Name:</strong>
+                  <span style={{ color: '#667eea', fontWeight: '500' }}>Seat of God Sch</span>
+                </div>
+                
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between',
+                  padding: '10px 0',
+                  borderBottom: '1px solid #e1e5e9'
+                }}>
+                  <strong style={{ color: '#2c3e50' }}>Bank:</strong>
+                  <span style={{ color: '#667eea', fontWeight: '500' }}>Union Bank of Nigeria</span>
+                </div>
+                
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between',
+                  padding: '10px 0',
+                  borderBottom: '1px solid #e1e5e9'
+                }}>
+                  <strong style={{ color: '#2c3e50' }}>Account Number:</strong>
+                  <span style={{ 
+                    color: '#667eea', 
+                    fontWeight: '500',
+                    fontSize: '1.1rem',
+                    letterSpacing: '1px'
+                  }}>0010692249</span>
+                </div>
               </div>
-              <div className="custom-amount">
-                <input
-                  type="number"
-                  placeholder="Enter custom amount"
-                  {...register('customAmount')}
-                  onChange={(e) => {
-                    if (e.target.value) {
-                      setSelectedAmount('custom');
-                      setValue('amount', e.target.value);
-                    }
-                  }}
-                />
-                <span>NGN</span>
+              
+              <div style={{ 
+                marginTop: '20px',
+                padding: '15px',
+                background: '#e8f4fd',
+                borderRadius: '8px',
+                textAlign: 'center'
+              }}>
+                <p style={{ 
+                  margin: '0',
+                  color: '#2c3e50',
+                  fontSize: '0.95rem'
+                }}>
+                  <strong>After making your transfer, please contact us to confirm your donation.</strong>
+                </p>
               </div>
-            </AmountSection>
+            </div>
 
-            <FormGroup>
-              <label htmlFor="donationType">Donation Type</label>
-              <select id="donationType" {...register('donationType')}>
-                <option value="general">General Donation</option>
-                <option value="tithe">Tithe</option>
-                <option value="offering">Offering</option>
-                <option value="building">Building Fund</option>
-                <option value="mission">Mission Fund</option>
-                <option value="youth">Youth Ministry</option>
-              </select>
-            </FormGroup>
-
-            <FormGroup>
-              <label htmlFor="name">Full Name *</label>
-              <input
-                type="text"
-                id="name"
-                {...register('name', { required: 'Name is required' })}
-                className={errors.name ? 'error' : ''}
-                placeholder="Your full name"
-              />
-              {errors.name && (
-                <div className="error-message">{errors.name.message}</div>
-              )}
-            </FormGroup>
-
-            <FormGroup>
-              <label htmlFor="email">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                {...register('email', { 
-                  required: 'Email is required',
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Invalid email address'
-                  }
-                })}
-                className={errors.email ? 'error' : ''}
-                placeholder="your.email@example.com"
-              />
-              {errors.email && (
-                <div className="error-message">{errors.email.message}</div>
-              )}
-            </FormGroup>
-
-            <PaymentMethod>
-              <h4>Payment Method</h4>
-              <div className="payment-options">
-                <label className={`payment-option ${paymentMethod === 'card' ? 'active' : ''}`}>
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="card"
-                    checked={paymentMethod === 'card'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
-                  <FaCreditCard />
-                  <span>Card Payment</span>
-                </label>
-                <label className={`payment-option ${paymentMethod === 'bank' ? 'active' : ''}`}>
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="bank"
-                    checked={paymentMethod === 'bank'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
-                  <FaMobile />
-                  <span>Bank Transfer</span>
-                </label>
-              </div>
-            </PaymentMethod>
-
-            <FormGroup>
-              <label htmlFor="message">Message (Optional)</label>
-              <textarea
-                id="message"
-                {...register('message')}
-                placeholder="Add a message with your donation..."
-              />
-            </FormGroup>
-
-            <SubmitButton type="submit" disabled={isSubmitting}>
-              {isSubmitting ? (
-                'Processing...'
-              ) : (
-                <>
-                  <FaHeart />
-                  Donate Now
-                </>
-              )}
-            </SubmitButton>
+            <div style={{ 
+              textAlign: 'center',
+              padding: '20px',
+              background: '#f8f9fa',
+              borderRadius: '10px',
+              marginBottom: '20px'
+            }}>
+              <h4 style={{ 
+                color: '#2c3e50', 
+                marginBottom: '15px',
+                fontSize: '1.2rem'
+              }}>
+                Other Payment Methods
+              </h4>
+              <p style={{ 
+                color: '#666',
+                marginBottom: '20px',
+                lineHeight: '1.6'
+              }}>
+                If you would like to donate via other means, please contact us using the form below.
+              </p>
+              <a 
+                href="/contact" 
+                style={{
+                  display: 'inline-block',
+                  padding: '12px 30px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '8px',
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                Contact Us
+              </a>
+            </div>
           </DonationForm>
         </DonateContent>
       </DonateSection>
