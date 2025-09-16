@@ -213,10 +213,10 @@ const Sermons = () => {
 
   const filters = ['All', 'Sunday Service', 'Bible Study', 'Prayer Meeting', 'Special Event'];
 
-  // Placeholder - sermons will be uploaded soon
-  const mockSermons = [];
-
   useEffect(() => {
+    // Placeholder - sermons will be uploaded soon
+    const mockSermons = [];
+    
     // Simulate API call
     setTimeout(() => {
       setSermons(mockSermons);

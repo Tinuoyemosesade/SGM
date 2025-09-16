@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaClock, FaMapMarkerAlt, FaArrowRight, FaTimes, FaUser, FaEnvelope, FaPhone, FaComment } from 'react-icons/fa';
@@ -20,113 +20,35 @@ const HeroSection = styled.section`
   color: white;
 `;
 
-const EventsSection = styled.section`
-  padding: 100px 0;
-  background: #f8f9fa;
-`;
 
-const EventsContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 40px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-`;
 
-const CalendarSection = styled.div`
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  height: fit-content;
+// const EventsList = styled.div`
+//   .filter-section {
+//     display: flex;
+//     gap: 15px;
+//     margin-bottom: 30px;
+//     flex-wrap: wrap;
+//     align-items: center;
+//   }
 
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+//   .filter-button {
+//     padding: 8px 16px;
+//     border: 2px solid ${props => props.active ? '#667eea' : '#ddd'};
+//     background: ${props => props.active ? '#667eea' : 'white'};
+//     color: ${props => props.active ? 'white' : '#666'};
+//     border-radius: 20px;
+//     cursor: pointer;
+//     transition: all 0.3s ease;
+//     font-size: 0.9rem;
+//     font-weight: 500;
 
-  .react-calendar {
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Inter', sans-serif;
-
-    .react-calendar__tile {
-      padding: 8px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: #f0f0f0;
-      }
-
-      &.react-calendar__tile--active {
-        background: #667eea;
-        color: white;
-      }
-
-      &.react-calendar__tile--now {
-        background: #e3f2fd;
-        color: #1976d2;
-      }
-    }
-
-    .react-calendar__navigation {
-      margin-bottom: 20px;
-
-      button {
-        background: none;
-        border: none;
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: #2c3e50;
-        padding: 10px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-
-        &:hover {
-          background: #f0f0f0;
-        }
-      }
-    }
-  }
-`;
-
-const EventsList = styled.div`
-  .filter-section {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .filter-button {
-    padding: 8px 16px;
-    border: 2px solid ${props => props.active ? '#667eea' : '#ddd'};
-    background: ${props => props.active ? '#667eea' : 'white'};
-    color: ${props => props.active ? 'white' : '#666'};
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    font-weight: 500;
-
-    &:hover {
-      border-color: #667eea;
-      color: #667eea;
-    }
-  }
-`;
+//     &:hover {
+//       border-color: #667eea;
+//       color: #667eea;
+//     }
+//   }
+// `;
 
 const EventCard = styled(motion.div)`
   background: white;

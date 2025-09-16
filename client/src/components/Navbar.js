@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaBars, FaTimes, FaChurch } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Nav = styled.nav`
   position: fixed;
