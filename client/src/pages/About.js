@@ -251,7 +251,7 @@ const About = () => {
             <HistoryText>
             <h2>Founded in Faith</h2>
             <p>
-              Seat of God Ministry was established in 1995 with a simple mission: 
+              Seat of God Ministry was established with a simple mission: 
               to create a place where people could encounter God's love and grow in 
               their faith journey. What started as a small gathering of believers 
               has grown into a vibrant community of over 1,500 members.

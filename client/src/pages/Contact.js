@@ -242,11 +242,18 @@ const Contact = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Submit to Netlify Forms
+      const formData = new FormData();
+      Object.keys(data).forEach(key => {
+        formData.append(key, data[key]);
+      });
+      formData.append('form-name', 'contact');
       
-      // In real app, this would be:
-      // await axios.post('/api/contact', data);
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
       
       toast.success('Message sent successfully! We\'ll get back to you soon.');
       reset();
@@ -341,7 +348,8 @@ const Contact = () => {
             </div>
           </ContactInfo>
 
-          <ContactForm onSubmit={handleSubmit(onSubmit)}>
+          <ContactForm name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit(onSubmit)}>
+            <input type="hidden" name="form-name" value="contact" />
             <h3>Send us a Message</h3>
             <FormGroup>
               <label htmlFor="name">Full Name *</label>

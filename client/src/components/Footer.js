@@ -127,12 +127,10 @@ const Footer = () => {
         <FooterSection>
           <h3>Service Times</h3>
           <p><strong>Sunday Service:</strong></p>
-          <p>First Service: 8:00 AM</p>
-          <p>Second Service: 10:30 AM</p>
-          <p>Evening Service: 6:00 PM</p>
+          <p>Service: 8:00 AM</p>
           <br />
           <p><strong>Wednesday Bible Study:</strong></p>
-          <p>7:00 PM - 8:30 PM</p>
+          <p>5:30 PM - 7:30 PM</p>
         </FooterSection>
 
         <FooterSection>
