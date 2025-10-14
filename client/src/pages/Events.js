@@ -405,7 +405,7 @@ const Events = () => {
       id: 2,
       title: "Mid Week Miracle Hour",
       description: "A powerful mid-week service designed to strengthen your faith and receive God's miracles in your life.",
-      time: "5:30 PM - 7:00 PM",
+      time: "5:30 PM - 7:30 PM",
       day: "Every Wednesday",
       location: "Main Sanctuary",
       category: "Service",

@@ -437,14 +437,16 @@ const Home = () => {
           <WelcomeText>
             <h2>Welcome to Our Ministry Family</h2>
             <p>
-              At Seat of God Ministry, we believe that everyone has a place in God's family. 
-              Whether you're new to faith or have been walking with Christ for years, 
-              you'll find a warm welcome and a community that supports your spiritual growth.
+              At Seat of God Ministry, we are a Bible believing Church with heavenly goals, 
+              without neglecting the brotherhood physical and spiritual needs. We hold forth 
+              the efficacy of the Word via prayer, prophecy and sound teaching as enlightened 
+              by the Holy Spirit.
             </p>
             <p>
-              Our mission is to love God, love people, and make disciples who make disciples. 
-              We're committed to creating an environment where you can explore your faith, 
-              ask questions, and grow in your relationship with Jesus Christ at the Seat of God.
+              We are a one-stop Commission with secular and spiritual ventures in Education, 
+              Commerce, Healthcare etc.. to the benefits of members, humanity and ultimately 
+              to the glory of God. Whether you're new to faith or have been walking with Christ 
+              for years, you'll find a warm welcome and a community that supports your spiritual growth.
             </p>
             <Link to="/about" className="btn btn-primary">
               Learn More About Us

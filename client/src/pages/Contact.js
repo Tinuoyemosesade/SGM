@@ -305,7 +305,7 @@ const Contact = () => {
               </h3>
               <div className="info-item">
                 <FaMapMarkerAlt />
-                <span>Abuja, Zaria Express Way, Goni Gora, Pa 800104, Kaduna, Nigeria</span>
+                <span>Abuja-Kaduna Expressway</span>
               </div>
               <div className="info-item">
                 <FaClock />

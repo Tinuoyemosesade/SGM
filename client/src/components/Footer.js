@@ -129,7 +129,7 @@ const Footer = () => {
           <p><strong>Sunday Service:</strong></p>
           <p>Service: 8:00 AM</p>
           <br />
-          <p><strong>Wednesday Bible Study:</strong></p>
+          <p><strong>Wednesday Miracle Hour:</strong></p>
           <p>5:30 PM - 7:30 PM</p>
         </FooterSection>
 
@@ -137,7 +137,7 @@ const Footer = () => {
           <h3>Contact Info</h3>
           <ContactInfo>
             <FaMapMarkerAlt />
-            <span>Abuja, Zaria Express Way, Goni Gora, Pa 800104, Kaduna, Nigeria</span>
+            <span>Abuja-Kaduna Expressway</span>
           </ContactInfo>
           <ContactInfo>
             <FaPhone />

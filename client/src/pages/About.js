@@ -251,15 +251,18 @@ const About = () => {
             <HistoryText>
             <h2>Founded in Faith</h2>
             <p>
-              Seat of God Ministry was established with a simple mission: 
-              to create a place where people could encounter God's love and grow in 
-              their faith journey. What started as a small gathering of believers 
-              has grown into a vibrant community of over 1,500 members.
+              Seat of God Ministry is a Bible believing Church with heavenly goals, 
+              without neglecting the brotherhood physical and spiritual needs. We hold 
+              forth the efficacy of the Word via prayer, prophecy and sound teaching as 
+              enlightened by the Holy Spirit. We are a one-stop Commission with secular 
+              and spiritual ventures in Education, Commerce, Healthcare etc.. to the 
+              benefits of members, humanity and ultimately to the glory of God.
             </p>
             <p>
-              Our ministry was founded on the principles of love, acceptance, and 
-              spiritual growth. We believe that everyone has a place in God's family, 
-              regardless of their background or past experiences.
+              What started as a small gathering of believers has grown into a vibrant 
+              community of over 1,500 members. Our ministry was founded on the principles 
+              of love, acceptance, and spiritual growth. We believe that everyone has a 
+              place in God's family, regardless of their background or past experiences.
             </p>
             <p>
               Over the years, we've seen countless lives transformed through the 

@@ -178,9 +178,11 @@ const Donate = () => {
           <DonateInfo>
             <h2>Make a Difference</h2>
             <p>
-              Your donations help us continue our mission of spreading God's love, 
-              supporting our community, and making a positive impact in the lives of many 
-              at the Seat of God Ministry.
+              Your donations help us continue our mission as a Bible believing Church with 
+              heavenly goals, without neglecting the brotherhood physical and spiritual needs. 
+              We hold forth the efficacy of the Word via prayer, prophecy and sound teaching 
+              as enlightened by the Holy Spirit, supporting our community and making a positive 
+              impact in the lives of many at the Seat of God Ministry.
             </p>
 
             <PurposeCard>

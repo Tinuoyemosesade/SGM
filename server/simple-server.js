@@ -60,7 +60,7 @@ app.get('/api/events', (req, res) => {
       id: 2,
       title: "Mid Week Miracle Hour",
       description: "A powerful mid-week service designed to strengthen your faith.",
-      time: "5:30 PM",
+      time: "5:30 PM - 7:30 PM",
       day: "Every Wednesday",
       location: "Main Sanctuary",
       category: "Service",
